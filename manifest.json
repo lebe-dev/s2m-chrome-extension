@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "S2M",
+  "version": "0.1.0",
+  "description": "Convert selected text to Markdown",
+  "permissions": ["contextMenus", "activeTab", "scripting", "clipboardWrite"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/vendor/turndown.js", "src/content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
